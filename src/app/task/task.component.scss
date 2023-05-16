@@ -1,0 +1,37 @@
+@use "variables" as vars;
+.task-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    gap: 5px;
+    border: 1px solid vars.$secondary;
+}
+
+.task-checkbox {
+    flex-shrink: 0;
+}
+
+.task-desc {
+    flex: 1;
+    cursor: default;
+    margin: 0px;
+    word-break: break-all;
+    display: inline-block;
+    &:hover {
+        background-color: vars.$secondary;
+    }
+}
+
+.task-completed {
+    text-decoration-line: line-through;
+}
+
+.cancel-btn {
+    flex-shrink: 0;
+    cursor: pointer;
+    background-color: vars.$danger;
+    border-radius: 50%;
+    border: none;
+    color: vars.$white;
+}

@@ -1,0 +1,90 @@
+@use "variables" as vars;
+.todo-list-container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px vars.$secondary solid;
+    border-radius: 3px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    background-color: vars.$secondary;
+}
+
+.todo-list-body {
+    margin: 10px;
+}
+
+.add-task-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    padding: 5px 0 5px 5px;
+    gap: 5px;
+}
+
+.add-task-input {
+    flex: 1;
+}
+
+.tasks-operation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-container {
+    width: 50%;
+}
+
+.filter-input {
+    width: 100%;
+}
+
+.sorting-container {
+    display: flex;
+    justify-content: end;
+    margin: 5px 0;
+}
+
+.sorting-select {
+    cursor: pointer;
+    margin-left: 5px;
+
+    &:hover {
+        background-color: vars.$secondary;
+    }
+}
+
+.tasks-container {
+    margin: 5px 0;
+}
+
+.add-task-btn {
+    color: vars.$white;
+    background-color: vars.$primary;
+    border-color: vars.$primary;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    &:hover {
+        cursor: pointer;
+    }
+    &:disabled {
+        background-color: vars.$disabled;
+    }
+}
+
+@media (min-width: 768px) {
+    .todo-list-container {
+        max-width: 720px;
+    }
+}
+
+@media (max-width: 576px) {
+    .todo-list-container {
+        min-width: fit-content;
+    }
+}

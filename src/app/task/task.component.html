@@ -1,0 +1,21 @@
+<ng-container *ngIf="task">
+  <div class="task-container">
+    <input class="task-checkbox"
+           type="checkbox"
+           [checked]="task.isCompleted"
+           (click)="
+             toggleCheck()">
+    <p *ngIf="!isModifyingDescription"
+       class="task-desc"
+       [ngClass]="{'task-completed': task.isCompleted}"
+       (dblclick)="modifiedDescription()">
+      {{task.description}}
+    </p>
+    <input #descInput
+           class="task-desc"
+           [(ngModel)]="descriptionInput"
+           *ngIf="isModifyingDescription">
+    <button (click)="deleteTask()"
+            class="btn cancel-btn">x</button>
+  </div>
+</ng-container>

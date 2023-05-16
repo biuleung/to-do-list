@@ -1,0 +1,41 @@
+<div class="todo-list-container">
+    <div class="title">
+        <h3>Title</h3>
+    </div>
+    <div class="todo-list-body">
+        <div class="add-task-container">
+            <span>Add task: </span>
+            <input class="add-task-input"
+                   type="text"
+                   [(ngModel)]="newTaskDescInput">
+            <button class="btn add-task-btn"
+                    [disabled]="newTaskDescInput.trim().length <= 0"
+                    (click)="addTask()">+</button>
+        </div>
+        <div class="tasks-operation-container">
+            <div class="filter-container">
+                <input class="filter-input"
+                       type="text"
+                       placeholder="search..."
+                       [ngModel]="filteredTasksInput"
+                       (ngModelChange)="filterTasks($event)">
+            </div>
+            <div class="sorting-container">
+                <span>Sort by: </span>
+                <div (click)="sortTasks()">
+                    <span *ngIf="isSortByNewest"
+                          class="sorting-select">Newest &#8594; Oldest</span>
+                    <span *ngIf="!isSortByNewest"
+                          class="sorting-select">Newest &#8592; Oldest</span>
+                </div>
+            </div>
+        </div>
+        <div class="tasks-container">
+            <app-task *ngFor="let task of tasks$ | async"
+                      [task]="task"
+                      (onToggleComplete)="updateTaskCompletion($event)"
+                      (onModifiedDescription)="modifiedDescription($event)"
+                      (onDelete)="deleteTask($event)"></app-task>
+        </div>
+    </div>
+</div>
